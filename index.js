@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-require('./config/mongoose')
+// require('./config/mongoose')
+const User = require("./models/user.model");
+User.sync({ force: true });
 const port = 3000;
 
 const app = express();
