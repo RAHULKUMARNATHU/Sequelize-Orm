@@ -1,5 +1,4 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../config/mongoose");
+module.exports = (sequelize, DataTypes) => {
 
 const User = sequelize.define(
   "User",
@@ -25,6 +24,7 @@ const User = sequelize.define(
   }
 );
 
+}
 // `sequelize.define` also returns the model
-console.log(User === sequelize.models.User); // true
-module.exports = User;
+// console.log(User === sequelize.models.User); // true
+// module.exports = User;

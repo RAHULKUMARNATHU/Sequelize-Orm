@@ -1,10 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+require('./models/index')
 // require('./config/mongoose')
-const User = require("./models/user.model");
+// const User = require("./models/user.model");
+// const Contact = require('./models/contact.model')
 
-User.sync({ force: true });
-// User.sync();
 
 const port = 3000;
 
@@ -17,6 +17,9 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
+// User.sync({ force: true });
+// // User.sync();
+// Contact.sync({force:true})
 app.listen(port, (err) => {
   if (err) {
     console.log();
