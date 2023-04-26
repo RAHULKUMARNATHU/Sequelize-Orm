@@ -12,11 +12,15 @@ const User = sequelize.define(
     lastName: {
       type: DataTypes.STRING,
       // allowNull defaults to true
+      defaultValue:''
     },
   },
   {
-    tableName: "users",
-
+    /*Options  */
+    // tableName: "users",
+    // createdAt:false,
+    // updatedAt:'updated_At'
+    // timestamps:false
     // Other model options go here
   }
 );
