@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes, Model) => {
       modelName: "Contact", // We need to choose the model name
     }
   );
+  return Contact
 };
 
 // the defined model is the class itself
