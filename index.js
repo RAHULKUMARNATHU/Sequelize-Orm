@@ -27,6 +27,10 @@ app.post("/createUSer", userController.createUser);
 
 /*API for getUserById  */
 app.get("/getUserById/:id", userController.getUserById);
+
+
+
+app.delete("/deleteUser/:id",userController.deleteUser)
 // User.sync({ force: true });
 // // User.sync();
 // Contact.sync({force:true})
