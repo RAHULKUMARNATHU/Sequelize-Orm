@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 require('./models/index')
 const userController = require('./controllers/user.controller')
-
+const practiceController = require('./controllers/Practice.controller')
 // require('./config/mongoose')
 // const User = require("./models/user.model");
 // const Contact = require('./models/contact.model')
@@ -34,6 +34,15 @@ app.delete("/deleteUser/:id",userController.deleteUser)
 // User.sync({ force: true });
 // // User.sync();
 // Contact.sync({force:true})
+
+
+
+
+/*Practices */
+/*API for find all user with attributes */
+
+app.get("/findAllUser",practiceController.findAllUser);
+
 app.listen(port, (err) => {
   if (err) {
     console.log();
