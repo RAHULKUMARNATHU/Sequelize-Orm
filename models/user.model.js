@@ -6,12 +6,33 @@ module.exports = (sequelize, DataTypes) => {
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
+        get(){
+          const rawValue = this.getDataValue('firstName');
+          return rawValue ? rawValue.toUpperCase() : null;
+        }
       },
       lastName: {
         type: DataTypes.STRING,
         // allowNull defaults to true
         defaultValue: "",
+        set(value){
+
+          this.setDataValue('lastName',  value )
+          // this.setDataValue('lastName',  value +'  '+ " ,India")
+        }
       },
+      fullName:{
+        type: DataTypes.VIRTUAL,
+        get(){
+          return `${this.firstName} ${this.lastName}`;
+      },
+       set(value){
+          this.setDataValue('fullName', value);
+        }
+    }
+    // set(value){
+    //   // this.setDataValue('fullName', value);
+    // }
     },
     {
       /*Options  */
