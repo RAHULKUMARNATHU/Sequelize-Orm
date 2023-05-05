@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 require('./models/index')
 const userController = require('./controllers/user.controller')
 const practiceController = require('./controllers/Practice.controller')
+const finderController = require('./controllers/finder.controller');
 // require('./config/mongoose')
 // const User = require("./models/user.model");
 // const Contact = require('./models/contact.model')
@@ -42,6 +43,14 @@ app.delete("/deleteUser/:id",userController.deleteUser)
 /*API for find all user with attributes */
 
 app.get("/findAllUser",practiceController.findAllUser);
+
+/*Finders */
+
+// app.get('/', finderController.finders)
+
+
+
+app.use('/', require('./routes'));
 
 app.listen(port, (err) => {
   if (err) {
