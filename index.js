@@ -9,7 +9,7 @@ const finderController = require('./controllers/finder.controller');
 // const Contact = require('./models/contact.model')
 
 
-const port = 3000;
+const port = 3001;
 
 const app = express();
 

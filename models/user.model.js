@@ -6,33 +6,43 @@ module.exports = (sequelize, DataTypes) => {
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
-        get(){
-          const rawValue = this.getDataValue('firstName');
+        unique: true,
+        validate: {
+          isAlpha: {
+            msg: "only Alphabets are allowed",
+          },
+          len:{
+            min:3,
+            max:10,
+            msg:"must be between 3 and 10 characters"
+          },
+        },
+        get() {
+          const rawValue = this.getDataValue("firstName");
           return rawValue ? rawValue.toUpperCase() : null;
-        }
+        },
       },
       lastName: {
         type: DataTypes.STRING,
         // allowNull defaults to true
         defaultValue: "",
-        set(value){
-
-          this.setDataValue('lastName',  value )
+        set(value) {
+          this.setDataValue("lastName", value);
           // this.setDataValue('lastName',  value +'  '+ " ,India")
-        }
+        },
       },
-      fullName:{
+      fullName: {
         type: DataTypes.VIRTUAL,
-        get(){
+        get() {
           return `${this.firstName} ${this.lastName}`;
+        },
+        set(value) {
+          this.setDataValue("fullName", value);
+        },
       },
-       set(value){
-          this.setDataValue('fullName', value);
-        }
-    }
-    // set(value){
-    //   // this.setDataValue('fullName', value);
-    // }
+      // set(value){
+      //   // this.setDataValue('fullName', value);
+      // }
     },
     {
       /*Options  */
