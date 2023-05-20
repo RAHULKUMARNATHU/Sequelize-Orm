@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes, Model) => {
         type: DataTypes.STRING,
         // allowNull defaults to true
       },
+      user_id: DataTypes.INTEGER,
     },
     {
       timestamps: true,
@@ -20,7 +21,7 @@ module.exports = (sequelize, DataTypes, Model) => {
       modelName: "Contact", // We need to choose the model name
     }
   );
-  return Contact
+  return Contact;
 };
 
 // the defined model is the class itself
