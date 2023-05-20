@@ -8,6 +8,7 @@ module.exports.getUser = async (req, res) => {
     include: [
       {
         model: Contact,
+        as:'contactDetails',
         attributes: ["current_address", "permanent_address"],
       },
     ],
